@@ -1,0 +1,24 @@
+﻿{% extends 'cards/base_cards.html'%}
+
+ 
+{% block title %}
+		
+	Update Base Card
+{% endblock %}
+
+
+{% block content %}
+
+	
+	
+
+	<form action="{%url 'card_base_update_url'%}" method='post'>
+		{% csrf_token %}
+	
+	<button type="submit" class="btn btn-danger">Обновить</button>
+	</form>
+
+	
+		
+{% endblock %} 
+

@@ -1,0 +1,48 @@
+﻿{% extends 'cards/base_cards.html'%}
+
+ 
+{% block title %}
+		
+	Search cards
+{% endblock %}
+
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+</style>
+	
+       
+
+	<form action="{% url 'search_card_url' %}" method='get'>
+		
+	<div class="form-group">
+		{% csrf_token %}
+		<table style="width:100%">
+  	<tr>	 
+		 <td>Владелец {{form.card_owner_name}}</td>
+   		 <td>Серия {{form.card_serial}}</td>
+    		 <td>Номер {{form.card_number}}</td>
+   		 <td>Выпуск с {{form.card_date_create_from}}</td>
+		 <td>Активна до{{form.card_end_active}}</td>
+    		 <td>Статус{{form.card_status}}</td>
+	</tr>
+	</table>
+	<table style="width:100%">
+		
+	</table>
+	
+	</div>
+	<button type="submit" class="btn btn-primary">Найти</button>
+	</form>
+	
+
+
+
+
+{% endblock %}
+

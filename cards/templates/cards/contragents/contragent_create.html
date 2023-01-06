@@ -1,0 +1,36 @@
+﻿{% extends 'cards/base_cards.html'%}
+
+ 
+{% block title %}
+		
+	Create Contragent
+{% endblock %}
+
+
+{% block content %}
+
+</style>
+	
+
+
+	<form action="{% url 'contr_agent_create_url' %}" method='post'>
+		{% csrf_token %}
+		{% for field in form %}
+		
+  		   <div class="from-group">
+			{% if field.errors %}
+			   <div class="alert alert-danger">
+				{{field.errors}}
+ 			   </div>
+			{% endif %}
+	 		{{field.label}}
+			{{field}}
+    
+ 		   </div>
+		{% endfor %}
+	<button type="submit" class="btn btn-primary">Создать</button>
+	</form>
+	
+
+{% endblock %} 
+

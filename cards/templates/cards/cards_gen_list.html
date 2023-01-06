@@ -1,0 +1,58 @@
+﻿{% extends 'cards/base_cards.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Cards
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 2px;
+		heigth: 5px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+
+	<table>
+  		<tr>
+		
+    		 <th style="width:10%">Серия</th>
+    		 <th style="width:10%">Номер</th>
+		 <th style="width:4%">Срок активации</th>
+  		 </tr>
+	
+	
+		
+	{% for card_gen in cards_gen%}
+		<tr>
+		
+		 
+    		 <td style="font-size:80%;">{{card_gen.card_gen_serial}}</td>
+		 <td style="font-size:80%;">{{card_gen.card_gen_number}}</td>
+		 <td style="font-size:80%;">{{card_gen.card_gen_term_active}}</td>
+		 
+		 
+		</tr>
+	{% endfor %}
+	</table>
+{%endblock%}
+
+
+	        
+<!--{flat.get_absolute_url}-->

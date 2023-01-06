@@ -1,0 +1,40 @@
+﻿{% extends 'cards/base_cards.html'%}
+
+ 
+{% block title %}
+		
+	Create card
+{% endblock %}
+
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+</style>
+	
+
+
+	<form action="{% url 'card_create_url' %}" method='post'>
+		{% csrf_token %}
+	<div class="form-group">
+		<table style="width:100%">
+  
+	<tr>
+   		 <td>Владелец{{form.card_owner_name}}</td>
+   		 <td>Серия{{form.card_serial}}</td>
+		 
+   		 <td>Статус{{form.card_termin}}</td>
+ 	 </tr>
+	</table>
+	
+	</div>
+	<button type="submit" class="btn btn-primary">Сохранить</button>
+	</form>
+	
+{{s}}
+{% endblock %} 
+

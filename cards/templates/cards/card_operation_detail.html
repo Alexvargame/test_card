@@ -1,0 +1,39 @@
+﻿{% extends 'cards/base_cards.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Flats
+{% endblock %}
+
+
+{% block content %}
+	<div class="card" style="width: 50rem;">
+ 	 <div class="card-header">
+  	  Информация по финансовой операции
+ 	 </div>
+	 Общая
+ 	 <ul class="list-group list-group-flush">
+	   <li class="list-group-item"> Агент{{oper.agent}}</li>
+  	   <li class="list-group-item">Коациинтрагент-{{oper.contr_agent}}</li>
+	   <li class="list-group-item">Сумма-{{oper.summa}}</li>
+	   <li class="list-group-item">Дата опе-{{oper.date_operation}}</li>
+	   <li class="list-group-item">Информация-{{oper.oper_info}}</li>
+ 	 </ul>
+	</div>
+
+
+
+
+
+{{s}}
+{% endblock %} 
+
+<!--{% for fl in flat.items %}
+		
+		<h4>{{fl.label}}</h4>
+		<p>{{fl}}</p>
+	{% endfor %}
+-->
+

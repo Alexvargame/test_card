@@ -1,0 +1,43 @@
+﻿{% extends 'cards/base_cards.html'%}
+
+ 
+{% block title %}
+		
+	Create card
+{% endblock %}
+
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+</style>
+	
+
+
+	<form action="{% url 'card_gen_url' %}" method='post'>
+		{% csrf_token %}
+	<div class="form-group">
+		<table style="width:100%">
+  
+	<tr>
+   		
+   		 <td>Серия{{form.card_gen_serial}}</td>
+		 <td>Серия{{form.card_gen_number}}</td>
+		 <td>Срок актвивности{{form.card_gen_term_active}}</td>
+		 <td>Срок актвивности{{form1.ammount}}</td>
+		
+   		 
+ 	 </tr>
+	</table>
+	
+	</div>
+	<button type="submit" class="btn btn-primary">Генерировать</button>
+	</form>
+	
+{{s}}
+{% endblock %} 
+

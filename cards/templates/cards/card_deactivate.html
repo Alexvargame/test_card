@@ -1,0 +1,30 @@
+﻿{% extends 'cards/base_cards.html'%}
+
+ 
+{% block title %}
+		
+	Activate Card
+{% endblock %}
+
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+</style>
+	
+
+	<form action="{{card.get_deactivate_url}}" method='post'>
+		{% csrf_token %}
+	<h3>Активировать карту?<b>"{{card.id}}"</b></h3>
+	<a href="{{card.get_absolute_url}}">Отменить</a>
+	<button type="submit" class="btn btn-danger">Деактивировать</button>
+	</form>
+
+	
+{{s}}
+{% endblock %} 
+

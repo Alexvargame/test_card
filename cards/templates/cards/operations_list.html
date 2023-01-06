@@ -1,0 +1,65 @@
+﻿{% extends 'cards/base_cards.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Cards
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 2px;
+		heigth: 5px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+
+	<table>
+  		<tr>
+		 <th style="width:2%">I</th>
+   		 <th style="width:10%">Тип операции</th>
+    		 <th style="width:10%">Агент</th>
+    		 <th style="width:10%">Конргент</th>
+		 <th style="width:10%">сумма</th>
+		 <th style="width:4%">Дата/этажн</th>
+		 <th style="width:5%">Инфо</th>
+  		 </tr>
+	
+	
+		
+	{% for operation in operations%}
+		<tr>
+		 <td style="font-size:80%"><a href="{{operation.get_absolute_url}}">I</a></td>
+		 <td style="font-size:80%;">{{operation.type_op}}</td>
+    		 <td style="font-size:80%;">{{operation.agent}}</td>
+		 <td style="font-size:80%;">{{operation.contr_agent}}</td>
+		 <td style="font-size:80%;">{{operation.date_operation}}</td>
+		 <td style="font-size:80%;">{{operation.summa}}</td>
+		 <td style="font-size:80%;">{{operation.oper_info}}</td>
+		 
+		</tr>
+	{% endfor %}
+	</table>
+{%for si in s %}
+{{s.id}}
+{%endfor%}
+{%endblock%}
+
+
+	        
+<!--{flat.get_absolute_url}-->

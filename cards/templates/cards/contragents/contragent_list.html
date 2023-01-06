@@ -1,0 +1,54 @@
+﻿{% extends 'cards/base_cards.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	ContrAgents
+{% endblock %}
+
+
+{% block content %}
+	<style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 8px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+
+	<table>
+  		<tr>
+		 
+   		 <th style="width:10%">Имя</th>
+    		 <th style="width:10%">Серия/номер карты</th>
+ 
+  		 </tr>
+	
+	
+		
+	{% for contragent in contragents%}
+		<tr>
+		<td><a href="{{contragent.get_absolute_url}}">{{contragent.contr_agent_name}}</a></td>
+    		 <td>{{contragent.contr_agent_serial}}-{{contragent.contr_agent_number}}</td>
+		</tr>
+	{% endfor %}
+	
+		
+	</table>
+<a class="btn btn-primary" href="{% url 'contr_agent_create_url' %}" role="button">Добавить котрагента</a>
+
+	
+{% endblock %} 
+
+<!--{flat.get_absolute_url}-->

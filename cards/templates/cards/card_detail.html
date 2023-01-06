@@ -1,0 +1,64 @@
+﻿{% extends 'cards/base_cards.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Flats
+{% endblock %}
+
+
+{% block content %}
+	<div class="card" style="width: 50rem;">
+ 	 <div class="card-header">
+  	  Информация по карте 
+ 	 </div>
+	 Общая
+ 	 <ul class="list-group list-group-flush">
+	   <li class="list-group-item">Владелец {{card.card_owner_name}}</li>
+  	   <li class="list-group-item">Серия/номер-{{card.card_serial}},{{card.card_number}}</li>
+	   <li class="list-group-item">Баланс-{{card.card_balance}}</li>
+	   <li class="list-group-item">Дата создания-{{card.card_date_create}}</li>
+ 	 </ul>
+	Статус
+ 	 <ul class="list-group list-group-flush">
+ 	  <li class="list-group-item">Статус-{{card.card_status}}</a></li>
+  	  <li class="list-group-item">Дата активации-{{card.card_begin_active}}</li>
+  	  <li class="list-group-item">Срок использования-{{card.card_end_active}}</li>
+	  <li class="list-group-item">Срок активации-{{card.card_termin}}</li>
+ 	 </ul>
+	</div>
+
+{% if request.user.is_authenticated %}
+
+
+
+<div class="obj-panel">
+	 {% block obj-panel%}
+       		 <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Операции</a>
+         	 <ul class="dropdown-menu">
+         	   <li><a class="dropdown-item" href="{% url 'card_add_sum_url'  card_id=card.id %}">{%if card.card_status == 'active' %}Пополнение</a>{%endif%}</li>
+        	    <li><a class="dropdown-item" href="{% url 'card_transfer_url'  card_id=card.id %}">{%if card.card_status == 'active' %}Перевод</a>{%endif%}</li>          
+        	    <li><a class="dropdown-item" href="{% url 'card_payment_url'  card_id=card.id %}">{%if card.card_status == 'active' %}Оплата{%endif%}</a></li>
+	 	   <li><hr class="dropdown-divider"></li>
+	 	   <li><a class="dropdown-item" href="{% url 'operations_list_url' %}">Все операции</a></li>
+       		   </ul>
+		<a class="btn btn-light" href="{{card.get_activate_url}}">{%if card.card_status == 'not_active' %}Активировать{%endif%}</a></a>
+		<a class="btn btn-light" href="{{card.get_deactivate_url}}">{%if card.card_status == 'active' %}Деактивировать{%endif%}</a></a>
+		<a class="btn btn-danger" href="{{card.get_delete_url}}">Удалить</a>
+		<a class="btn btn-light" href="{% url 'cards_list_url'%}">К списку</a>
+	 {%endblock%}
+	</div>
+{% endif%}	
+
+
+{{s}}
+{% endblock %} 
+
+<!--{% for fl in flat.items %}
+		
+		<h4>{{fl.label}}</h4>
+		<p>{{fl}}</p>
+	{% endfor %}
+-->
+

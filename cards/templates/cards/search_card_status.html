@@ -1,0 +1,72 @@
+﻿{% extends 'cards/base_cards.html'%}
+ 
+	<h1>HI</h1>
+ 
+{% block title %}
+		
+	Cards
+
+{% endblock %}
+
+
+{% block content %}
+
+ <form class="d-flex" role="search" action="">
+        <input class="form-control me-2" type="search" name="search_status" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+ </form>
+
+  <style>
+		table {
+ 		 font-family: arial, sans-serif;
+ 		 border-collapse: collapse;
+ 		 width: 100%;
+		
+		}
+
+		td, th {
+  		border: 1px solid #dddddd;
+  		text-align: left;
+  		padding: 2px;
+		heigth: 5px;
+		}
+
+		tr:nth-child(even) {
+  		background-color: #dddddd;
+		}
+	</style>
+
+	<table>
+  		<tr>
+		 <th style="width:2%">I</th>
+   		 <th style="width:10%">Владелец</th>
+    		 <th style="width:10%">Серия</th>
+    		 <th style="width:10%">Номер</th>
+		 <th style="width:10%">Баланс</th>
+		 <th style="width:4%">Дата выпуска/этажн</th>
+		 <th style="width:4%">Дата активации</th>
+		 <th style="width:4%">Дта окончания активации</th>
+		 <th style="width:5%">Статус</th>
+  		 </tr>
+	
+	
+		
+	{% for card in cards%}
+		<tr>
+		 <td style="font-size:80%"><a href="{{card.get_absolute_url}}">I</a></td>
+		 <td style="font-size:80%;">{{card.card_owner_name}}</td>
+    		 <td style="font-size:80%;">{{card.card_serial}}</td>
+		 <td style="font-size:80%;">{{card.card_number}}</td>
+		 <td style="font-size:80%;">{{card.card_balance}}</td>
+		 <td style="font-size:80%;">{{card.card_date_create}}</td>
+		 <td style="font-size:80%;">{%if card.status == 'not active'%}{{None}} else {{card.card_begin_active}}{%endif%}</td>
+		 <td style="font-size:80%;">{%if card.status == 'not active'%}{{None}} else {{card.card_end_active}}{%endif%}</td>
+		 <td style="font-size:80%;">{{card.card_status}}</td>
+		 
+		</tr>
+	{% endfor %}
+	</table>
+  
+{{s}}
+{% endblock %} 
+
