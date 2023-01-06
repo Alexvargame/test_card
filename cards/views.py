@@ -10,7 +10,7 @@ from datetime import date, time, datetime, timedelta
 from random import randint, choice
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from smart_selects.db_fields import GroupedForeignKey
+
 def cards_list(request):
 
     cards=Card.objects.all()

@@ -1,8 +1,6 @@
 from django.db import models
 
 from django.shortcuts import reverse
-from smart_selects.db_fields import GroupedForeignKey
-
 
 class CardGenerator(models.Model):
     serials=[('AABB','AABB'),('ABCC','ABCC'),('ACAB','ACAB'),('ADBC','ADBC')]
