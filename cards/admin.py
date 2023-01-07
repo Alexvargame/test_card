@@ -1,3 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import CardGenerator,Card,ContrAgent,CardOperation
+admin.site.register(CardGenerator)
+admin.site.register(Card)
+admin.site.register(ContrAgent)
+admin.site.register(CardOperation)
